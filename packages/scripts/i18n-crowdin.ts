@@ -4,6 +4,7 @@
 import chalk from 'chalk';
 import fs from 'fs';
 import path from 'path';
+import util from 'util';
 
 import axios from 'axios';
 import JSON5 from 'json5';
@@ -400,6 +401,6 @@ async function push(): Promise<void> {
                 console.error(`Unknown action ${action}`);
         }
     } catch (exception) {
-        console.error(exception);
+        console.error(util.inspect(exception, { depth: null }));
     }
 })();
