@@ -302,6 +302,7 @@ async function push(): Promise<void> {
 
     const { branch: branchName } = getRepoInfo();
     const isMasterBranch = branchName === 'master';
+    console.log(`Current branch is ${chalk.green(branchName)}.`);
 
     if (!isMasterBranch) {
         questions.push({
@@ -402,5 +403,6 @@ async function push(): Promise<void> {
         }
     } catch (exception) {
         console.error(util.inspect(exception, { depth: null }));
+        process.exit(1);
     }
 })();
