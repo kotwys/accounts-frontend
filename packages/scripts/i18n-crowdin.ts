@@ -312,7 +312,7 @@ async function push(): Promise<void> {
     }
 
     let disapproveTranslates = true;
-    let publishInBranch = isMasterBranch;
+    let publishInBranch = !isMasterBranch;
     try {
         const answers = await prompt(questions);
         disapproveTranslates = answers[0]; // eslint-disable-line prefer-destructuring
